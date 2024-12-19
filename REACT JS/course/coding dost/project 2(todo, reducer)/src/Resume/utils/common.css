@@ -1,0 +1,18 @@
+
+header,footer{
+    background-color: aquamarine;
+    height: 60px;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    position:sticky;
+}
+
+.left,.right{
+    width: 100px;
+    background-color: bisque;
+}
+
+.middle{
+    display: flex;
+}

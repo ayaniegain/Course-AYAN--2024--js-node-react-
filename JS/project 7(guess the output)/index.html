@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>guess the number</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h4>GUESS THE NUMBER</h4>
+      <h2>Enter a Guess between 0 to 100</h2>
+      <input
+        type="number"
+        class="input"
+        placeholder="Enter a Number"
+        autocomplete="off"
+        min="0"
+        max="100"
+        required
+        autofocus
+      />
+      <div class="btn-container">
+        <button class="btn-guess">Start Guess</button>
+        <button class="btn-reset" disabled>Try Again</button>
+      </div>
+      <p class="statement"></p>
+      <p class="prev-guess"></p>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>

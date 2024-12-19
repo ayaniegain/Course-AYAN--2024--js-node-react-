@@ -1,0 +1,84 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.details p{
+  padding-top: 20px;
+  text-align: center;
+  color: red;
+  font-size: 20px;
+
+}
+
+input {
+  height: 30px;
+  width: 300px;
+  border-radius: 2px;
+  border: 2px solid green;
+  padding-left: 10px;
+}
+
+#check-box {
+  height: 18px;
+  width: 18px;
+}
+
+#submit,
+#edit,
+#delete {
+  height: 30px;
+  width: 70px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+#submit {
+  background-color: green;
+  color: white;
+}
+
+#edit {
+  background-color: orange;
+  color: black;
+}
+#delete {
+  background-color: red;
+  color: white;
+}
+
+#submit:hover,
+#edit:hover,
+#delete:hover {
+  color: white;
+  background-color: black;
+}
+
+table {
+  width: 800px;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid red;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}

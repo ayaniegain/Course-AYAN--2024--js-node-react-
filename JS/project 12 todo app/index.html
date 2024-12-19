@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h4>TODO FORM</h4>
+      <div class="form">
+        <input type="text" id="todo" placeholder="Add todo" />
+        <button  id="submit" onclick="handleClick()">Submit</button>
+      </div>
+      <div class="details">
+        <h4 style="text-align: center">TODO LIST</h4>
+
+        <p id="errAndBlank"></p>
+
+        <table>
+          <tr>
+            <th>No</th>
+            <th>Completed</th>
+            <th>Todo Item</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+          <tbody id="tbody">
+
+            <!-- <tr>
+              <td>1</td>
+              <td><input type="checkbox" id="check-box" /></td>
+              <td>Buy a pen</td>
+              <td><button id="edit">Edit</button></td>
+              <td><button id="delete">Delete</button></td>
+            </tr> -->
+           
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
