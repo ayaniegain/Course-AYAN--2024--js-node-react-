@@ -1,4 +1,4 @@
-import React, { Children, useState } from "react";
+import React, { Children, useReducer, useState } from "react";
 import VideoList from "./VideoList";
 import Addvideo from "./Addvideo";
 
@@ -26,50 +26,65 @@ let allVideos = [
 ];
 
 function VideoMainReducer() {
-  let [video, setVideo] = useState(allVideos);
-  let [editableVideo, setEditableVideo] = useState(null);
+  let initial = {
+    allVideos,
+    editableVideo: null,
+  };
+
+  const reducer = (state, action) => {
+    const { allVideos: video, editableVideo } = state;
+    const { type, payload } = action;
+
+    if (type == "add") {
+      return [...video, { ...payload, id: video.length + 1 }];
+    }
+    if (type == "delete") {
+      return video.filter((vid) => vid.id !== payload);
+    }
+    if (type == "edit") {
+      video.map((e) => {
+        if (e.id == payload.id) {
+          return { ...e, ...payload, duration: +payload.duration };
+        }
+        return e;
+      });
+    }
+    if (type == "eID") {
+      return video.find((e) => e.id == payload || editableVideo);
+    }
+  };
+
+  const [state, dispatch] = useReducer(reducer, initial);
+
+  console.log(state)
+
 
   function handleAddVideo(addvideo) {
-    setVideo([...video, { ...addvideo, id: video.length + 1 }]);
-   
+    dispatch({ type: "add", payload: addvideo });
   }
 
   function handleDeleteVideo(id) {
-    let filteredVideo = video.filter((vid) => vid.id !== id);
 
-    setVideo(filteredVideo);
+    dispatch({ type: "delete", payload: id });
   }
-  
+
   function handleEditVideoId(editVideoId) {
-    setEditableVideo(video.find((e) => e.id == editVideoId));
-
+    dispatch({ type: "eID", payload: editVideoId });
   }
 
-  function handleEditVideo(editvieo){
-
-    console.log(editvieo)
-
-    let neweditdVideo = video.map((e) => {
-      if (e.id == editvieo.id) {
-        return { ...e, ...editvieo, duration: +editvieo.duration };
-      }
-      return e;
-    });
-    console.log(neweditdVideo);
-    setVideo(neweditdVideo);
-
-    
+  function handleEditVideo(editvieo) {
+    dispatch({ type: "edit", payload: editvieo });
   }
 
   return (
     <div>
       <Addvideo
         handleAddVideo={handleAddVideo}
-        editableVideo={editableVideo}
+        editableVideo={state.editableVideo}
         handleEditVideo={handleEditVideo}
       />
       <VideoList
-        video={video}
+        video={state.allVideos || state}
         handleDeleteVideo={handleDeleteVideo}
         handleEditVideoId={handleEditVideoId}
       />
