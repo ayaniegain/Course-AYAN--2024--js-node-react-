@@ -1,6 +1,6 @@
 import React from 'react'
 
-function VideoList({video,handleDeleteVideo,handleEditVideo}) {
+function VideoList({video,handleDeleteVideo,handleEditVideoId}) {
   return (  <div 
     style={{ display:"flex",gap:"20px"}}
         
@@ -14,7 +14,7 @@ function VideoList({video,handleDeleteVideo,handleEditVideo}) {
         <h1>{e.duration}</h1>
         <button onClick={()=>handleDeleteVideo(e.id)}>delete</button>
         <br />
-        <button onClick={()=>handleEditVideo(e.id)}>edit</button>
+        <button onClick={()=>handleEditVideoId(e.id)}>edit</button>
       </div>
     ))}
   </div> 

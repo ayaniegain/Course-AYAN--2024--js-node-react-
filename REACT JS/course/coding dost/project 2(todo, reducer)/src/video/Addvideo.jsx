@@ -1,26 +1,33 @@
 import React, { useEffect, useState } from "react";
 
-function Addvideo({ handleAddVideo, editableVideo }) {
+function Addvideo({ handleAddVideo, editableVideo,handleEditVideo }) {
   let initial = {
     name: "",
     duration: "",
   };
 
   let [video, setvideos] = useState(initial);
-
+  let [editbtn, setEditbtn] = useState("add");
 
 
   useEffect(() => {
     if (editableVideo) {
-      setvideos(editableVideo)
-    }
+      setEditbtn("edit");
+      setvideos(editableVideo);
+    } 
   }, [editableVideo]);
-
+  
   const handleSubmit = (e) => {
     e.preventDefault();
-   
-   
-    handleAddVideo(video);
+
+    if (editableVideo) {
+      handleEditVideo(video);
+      setEditbtn("add");
+    } else {
+      handleAddVideo(video);
+
+    }
+
     setvideos(initial);
   };
 
@@ -48,7 +55,7 @@ function Addvideo({ handleAddVideo, editableVideo }) {
           onChange={handleChange}
         />
         <br />
-        <button type="submit">{!editableVideo?"add":"edit"}</button>
+        <button type="submit">{editbtn}</button>
         <br />
       </form>
     </div>

@@ -1,12 +1,14 @@
 import React from 'react'
-// import Main from './Resume/components/Main'
 import "./App.css"
-import VideoMain from './video/VideoMain'
+// import Main from './Resume/components/Main'
+// import VideoMain from './video/VideoMain'
+import VideoMainReducer from './video/VideoMainReducer'
 function App() {
   return (
     <div>
       {/* <Main/> */}
-      <VideoMain/>
+      {/* <VideoMain/> */}
+      <VideoMainReducer/>
     </div>
   )
 }
