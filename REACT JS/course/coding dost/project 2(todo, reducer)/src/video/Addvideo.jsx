@@ -1,64 +1,58 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 
-function Addvideo({ handleAddVideo, editableVideo,handleEditVideo }) {
-  let initial = {
-    name: "",
-    duration: "",
-  };
-
+function Addvideo({ handleAddVideo, editableVideo, handleEditVideo }) {
+  const initial = { name: "", duration: "" };
   let [video, setvideos] = useState(initial);
   let [editbtn, setEditbtn] = useState("add");
-
 
   useEffect(() => {
     if (editableVideo) {
       setEditbtn("edit");
       setvideos(editableVideo);
-    } 
+    } else {
+      setEditbtn("add");
+      setvideos(initial);
+    }
   }, [editableVideo]);
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (editableVideo) {
+    if (editbtn === "edit") {
       handleEditVideo(video);
       setEditbtn("add");
     } else {
       handleAddVideo(video);
-
     }
 
     setvideos(initial);
   };
 
   let handleChange = (e) => {
-    let nawVideos = { ...video, [e.target.name]: e.target.value };
-    setvideos(nawVideos);
+    let newVideos = { ...video, [e.target.name]: e.target.value };
+    setvideos(newVideos);
   };
 
   return (
-    <div>
-      <form style={{ paddingTop: "10px" }} onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="name"
-          placeholder="name"
-          value={video.name}
-          onChange={handleChange}
-        />
-        <br />
-        <input
-          type="text"
-          name="duration"
-          placeholder="duration"
-          value={video.duration}
-          onChange={handleChange}
-        />
-        <br />
-        <button type="submit">{editbtn}</button>
-        <br />
-      </form>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        name="name"
+        value={video.name}
+        onChange={handleChange}
+        placeholder="Video Name"
+      />
+      <br />
+      <input
+        type="number"
+        name="duration"
+        value={video.duration}
+        onChange={handleChange}
+        placeholder="Duration"
+      />
+      <br />
+      <button type="submit">{editbtn}</button>
+    </form>
   );
 }
 
