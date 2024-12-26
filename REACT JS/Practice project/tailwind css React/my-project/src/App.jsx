@@ -1,11 +1,22 @@
-import React from 'react'
+import React, { useContext } from "react";
+import Navigation from "./components/Navbar/Navigation";
+import Home from "./page/Home";
+import Context, { CounterContext } from "./context/Context";
+
+
+
 
 function App() {
+
   return (
-    <h1 className="text-3xl font-bold underline text-red-600">
-      Hello world!
-    </h1>
-  )
+    <Context>
+    <Navigation>
+      <div className="min-h-screen">
+        <Home />
+      </div>
+    </Navigation>
+    </Context>
+  );
 }
 
-export default App
+export default App;
