@@ -9,6 +9,8 @@ import ApiCall from "./components/07_Effect";
 import CompREF from "./components/08_useRef";
 import ThemeContextComp from "./components/09_ThemeContext";
 import ReducerExmp from "./components/10_useReducer";
+import MemoandCallBack from "./components/11_useMemo_Callback";
+import CustomHook from "./components/12_customHook";
 
 function App() {
   return (
@@ -21,7 +23,11 @@ function App() {
       {/* <Example/> */}
       {/* <CompREF/> */}
       {/* <ThemeContextComp/> */}
-      <ReducerExmp/>
+      {/* <ReducerExmp/> */}
+      {/* <MemoandCallBack/> */}
+      {/* <CustomHook/> */}
+      {/* -------☑️router start ☑️-------- */}
+      
 
     </>
   );

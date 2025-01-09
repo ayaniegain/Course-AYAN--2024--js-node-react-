@@ -5,8 +5,8 @@ let  credContext=createContext()
 
 function MyContext({children}) {
 
-  let [theme,setTheme]=useState("light")
   let [login,setLogin]=useState(false)
+  let [theme,setTheme]=useState("light")
 
 
 

@@ -1,70 +1,46 @@
-import React, { useReducer, useState } from "react";
-import { useEffect } from "react";
+import React, { useReducer } from "react";
 
 function ReducerExmp() {
   const cart = [
     { id: 1, name: "red Top", price: 10 },
     { id: 2, name: "blue top", price: 20 },
     { id: 3, name: "Jeans", price: 30 },
-    { id: 4, name: "tshrt ", price: 40 },
+    { id: 4, name: "tshrt", price: 40 },
   ];
 
   const cartReducer = (state, action) => {
     switch (action.type) {
       case "add":
-        {
-          state.push(action.payload);
-        }
+        return [...state, action.payload];
 
-        break;
       case "remove":
-        {
-          state = [];
-        }
-
-        break;
-
-      case "total":
-        {
-       state=   cart.reduce((curr, all) => curr + all.price, 0)
-        }
-
-        break;
+        return []; // Return an empty array to clear the cart.
 
       default:
-        break;
+        return state; // Ensure a default state is returned to avoid errors.
     }
-
-    return state;
   };
 
-  
-  
-  const [state, disPatch] = useReducer(cartReducer, cart);
-  
-  console.log(state);
-  
-  // let [total, setTotal] = useState(null);
-  // useEffect(() => {
-  //   setTotal(cart.reduce((curr, all) => curr + all.price, 0));
-  // }, [state]);
+  const [state, dispatch] = useReducer(cartReducer, cart);
 
+  // Calculate the total price dynamically based on the cart's state
+  const CartTotal = state.reduce((curr, item) => curr + item.price, 0);
 
   return (
     <div className="p-4">
       <ul className="list-disc pl-5">
         {state.map((item) => (
           <li key={item.id} className="mb-2 text-lg text-gray-700">
-            name is-{item.name}, price is-{item.price}
+            Name: {item.name}, Price: ${item.price}
           </li>
         ))}
       </ul>
       <button
         className="bg-blue-500 text-white py-2 px-4 rounded m-2 hover:bg-blue-600"
         onClick={() =>
-          disPatch({
+          dispatch({
             type: "add",
-            payload: { id: 5, name: "Mshrt ", price: 80 },
+            payload: { id: 5, name: "Mshrt", price: 80 },
           })
         }
       >
@@ -73,9 +49,9 @@ function ReducerExmp() {
       <button
         className="bg-blue-500 text-white py-2 px-4 rounded m-2 hover:bg-blue-600"
         onClick={() =>
-          disPatch({
+          dispatch({
             type: "add",
-            payload: { id: 6, name: "Mafler ", price: 100 },
+            payload: { id: 6, name: "Mafler", price: 100 },
           })
         }
       >
@@ -83,17 +59,13 @@ function ReducerExmp() {
       </button>
       <button
         className="bg-red-500 text-white py-2 px-4 rounded m-2 hover:bg-red-600"
-        onClick={() => disPatch({ type: "remove" })}
+        onClick={() => dispatch({ type: "remove" })}
       >
-        REMOVE All
+        Remove All
       </button>
-      <button
-        className="bg-green-500 text-white py-2 px-4 rounded m-2 hover:bg-green-600"
-        onClick={() => disPatch({ type: "total" })}
-      >
-        Total Price
-      </button>
-      <h2 className="text-2xl bg-green-300">total expences is -{state} </h2>
+      <h2 className="text-2xl bg-green-300 mt-4 p-2 rounded">
+        Total Expenses: ${CartTotal}
+      </h2>
     </div>
   );
 }

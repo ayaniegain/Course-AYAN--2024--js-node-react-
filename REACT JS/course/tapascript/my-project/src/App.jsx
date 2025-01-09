@@ -1,13 +1,11 @@
-import './App.css'
+import React from 'react'
+import First from './components/01_first'
 
 function App() {
-
   return (
-   <>
-  <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
-   </>
+    <div>
+      <First/>
+    </div>
   )
 }
 
