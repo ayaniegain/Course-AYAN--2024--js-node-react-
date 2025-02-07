@@ -70,3 +70,29 @@ fs.readFile("../Course 2/file_system/file/sample.txt","utf-8",(err,data)=>{
 console.log("first all the content load first ")
 
 // console.log(readfileContent2)
+
+import fs from "fs";
+
+// promised based file read
+
+function readText(path) {
+  return new Promise((resolved, rejected) =>
+    resolved(fs.readFileSync(path, "utf-8"))
+  );
+}
+
+// readText("./file_system/file/sample.txt").then((data)=>{
+
+//     console.log(data)
+
+// }).catch((err)=>{
+//         console.log(err)
+// })
+
+async function getValue() {
+  let readData = await readText("./file_system/file/sample.txt");
+
+  console.log(readData);
+}
+
+getValue();

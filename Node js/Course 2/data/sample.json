@@ -1,0 +1,82 @@
+[
+    {
+        "id": 1,
+        "name": "The Great Gatsby",
+        "price": 10.99,
+        "quantity": 3,
+        "author": "F. Scott Fitzgerald",
+        "details": "A novel set in the 1920s about the mysterious Jay Gatsby and his unrequited love for Daisy Buchanan."
+    },
+    {
+        "id": 2,
+        "name": "To Kill a Mockingbird",
+        "price": 7.99,
+        "quantity": 5,
+        "author": "Harper Lee",
+        "details": "A story of racial injustice and childhood innocence in the American South."
+    },
+    {
+        "id": 3,
+        "name": "1984",
+        "price": 8.99,
+        "quantity": 4,
+        "author": "George Orwell",
+        "details": "A dystopian novel about a totalitarian regime that uses surveillance and propaganda to control its citizens."
+    },
+    {
+        "id": 4,
+        "name": "Pride and Prejudice",
+        "price": 6.99,
+        "quantity": 6,
+        "author": "Jane Austen",
+        "details": "A romantic novel that also critiques the British class system of the early 19th century."
+    },
+    {
+        "id": 5,
+        "name": "The Catcher in the Rye",
+        "price": 9.99,
+        "quantity": 2,
+        "author": "J.D. Salinger",
+        "details": "A novel about teenage rebellion and alienation, narrated by the iconic Holden Caulfield."
+    },
+    {
+        "id": 6,
+        "name": "The Hobbit",
+        "price": 12.99,
+        "quantity": 7,
+        "author": "J.R.R. Tolkien",
+        "details": "A fantasy novel about the adventures of Bilbo Baggins, a hobbit who embarks on a quest to win a share of a treasure guarded by a dragon."
+    },
+    {
+        "id": 7,
+        "name": "Moby-Dick",
+        "price": 11.99,
+        "quantity": 3,
+        "author": "Herman Melville",
+        "details": "A novel about the obsessive quest of Captain Ahab to hunt the white whale Moby Dick."
+    },
+    {
+        "id": 8,
+        "name": "War and Peace",
+        "price": 14.99,
+        "quantity": 4,
+        "author": "Leo Tolstoy",
+        "details": "A historical novel that chronicles the French invasion of Russia and its impact on Tsarist society."
+    },
+    {
+        "id": 9,
+        "name": "The Odyssey",
+        "price": 13.99,
+        "quantity": 5,
+        "author": "Homer",
+        "details": "An epic poem about the adventures of Odysseus as he tries to return home after the Trojan War."
+    },
+    {
+        "id": 10,
+        "name": "Crime and Punishment",
+        "price": 9.49,
+        "quantity": 6,
+        "author": "Fyodor Dostoevsky",
+        "details": "A psychological novel about the moral dilemmas faced by a young man who commits a murder."
+    }
+]
