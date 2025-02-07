@@ -36,7 +36,7 @@ function BookList() {
   ];
 
   return (
-    <ul>
+    <ul className="space-y-4">
       {BOOKS.map((book) => (
         <li key={book.id}>
           <BookRow book={book} />
