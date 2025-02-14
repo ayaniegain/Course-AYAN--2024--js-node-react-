@@ -10,11 +10,11 @@ if (!mongo_url) {
 
 export function connectDB() {
   mongoose
-    .connect(mongo_url, {})
-    .then(() => {
-      console.log("Connected to MongoDB");
-    })
-    .catch((error) => {
-      console.error("Error connecting to MongoDB:", error);
-    });
+  .connect(mongo_url)
+  .then(() => {
+    console.log("Connected to MongoDB");
+  })
+  .catch((error) => {
+    console.error("Error connecting to MongoDB:", error);
+  });
 }
