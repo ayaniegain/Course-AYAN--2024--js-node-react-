@@ -13,12 +13,20 @@ const createBook = async (req, res) => {
 
 // Get all books
 const getAllBooks = async (req, res) => {
-  try {
-    const books = await book.find();
-    res.status(200).json({ message: "Books fetched successfully", data: books });
-  } catch (error) {
-    res.status(500).json({ message: "Error fetching books", error: error.message });
+  const role=req.user.role
+
+  if (role==="admin") {
+    try {
+      const books = await book.find();
+      res.status(200).json({ message: "Books fetched successfully", data: books });
+    } catch (error) {
+      res.status(500).json({ message: "Error fetching books", error: error.message });
+    }
+  }else{
+    res.status(500).json({ message: "you are not Admin user"});
+
   }
+  
 };
 
 // Get a single book by ID
@@ -39,10 +47,10 @@ const findBook = async (req, res) => {
 const updateBook = async (req, res) => {
   try {
     const { id } = req.params;
-    const { title } = req.body;
+    const { quantity } = req.body;
     const updatedBook = await book.findByIdAndUpdate(
       id,
-      { $set: { title } },
+      { $set: { quantity } },
       { new: true } // Returns the updated document
     );
     if (!updatedBook) {

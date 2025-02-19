@@ -1,12 +1,11 @@
 import './App.css'
+import Accordian from './project/Accordian/Accordian'
 
 function App() {
 
   return (
   <>
-  <h1 className="text-3xl font-bold underline">
-    Hello world!
-  </h1>
+  <Accordian/>
   </>
   )
 }
