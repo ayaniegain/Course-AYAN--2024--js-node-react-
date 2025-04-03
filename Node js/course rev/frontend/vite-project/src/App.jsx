@@ -1,14 +1,16 @@
+import Home from '../page/Home';
+import Login from '../page/Login';
 import Register from '../page/Register'
 import './App.css'
-
+import {  Routes, Route } from "react-router";
 function App() {
 
   return (
-    <>  <h1 className="text-3xl font-bold underline">
-    Hello world!
-    <Register/>
-  </h1>
-    </>
+    <Routes>  
+      <Route path="/" element={<Home />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/login" element={<Login />} />
+    </Routes>
  
   )
 }
