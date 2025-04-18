@@ -6,6 +6,7 @@ function authMiddleWare(req, res, next) {
   let authHeader = req.headers["authorization"];
   const token = authHeader && authHeader.split(" ")[1];
 
+
   if (!token) {
     return res
       .status(400)

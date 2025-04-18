@@ -57,6 +57,8 @@ async function loginUser(req, res) {
       { expiresIn: "1h" }
     );
 
+    res.setHeader('Authorization', `Bearer ${token}`);
+
     res
       .status(201)
       .json({ message: "user fetch successfully", accessToken: token });
